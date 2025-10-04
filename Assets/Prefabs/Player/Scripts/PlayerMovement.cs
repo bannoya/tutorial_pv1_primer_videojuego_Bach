@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 speed;
     private IMovementStrategy movementStrategy;
     private Player player;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         forceToApply = new Vector3(0, 0, 300);
@@ -17,15 +17,12 @@ public class PlayerMovement : MonoBehaviour
         intervalTime = 2f;
         player = new Player(5f, 5f);
         //SetMovementStrategy(new AccelerateMovementStrategy());
-        SetMovementStrategy(new SmoothMovementStrategy());
+        //SetMovementStrategy(new SmoothMovementStrategy());
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        MovePlayer();
-    }
+
+
 
     private void FixedUpdate()
     {
@@ -37,12 +34,14 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-    public void SetMovementStrategy(IMovementStrategy movementStrategy) {
-    
+    public void SetMovementStrategy(IMovementStrategy movementStrategy)
+    {
+
         this.movementStrategy = movementStrategy;
     }
-    public void MovePlayer() {
+    public void MovePlayer(float input)
+    {
 
-        movementStrategy.Move(transform, player);
+        movementStrategy.Move(transform, player, input);
     }
 }
