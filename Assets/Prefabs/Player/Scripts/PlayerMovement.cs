@@ -12,10 +12,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        forceToApply = new Vector3(0, 0, 300);
+        forceToApply = new Vector3(0, 0, 400f);
         timeSinceLastForce = 0f;
-        intervalTime = 2f;
-        player = new Player(5f, 5f);
+        intervalTime = 1f;
+        player = new Player(5f, 1000f);
         //SetMovementStrategy(new AccelerateMovementStrategy());
         //SetMovementStrategy(new SmoothMovementStrategy());
 
